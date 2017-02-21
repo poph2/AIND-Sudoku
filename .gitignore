@@ -1,0 +1,9 @@
+__pycache__/PySudoku.cpython-36.pyc
+.spyproject/codestyle.ini
+objects/__pycache__/SudokuSquare.cpython-36.pyc
+__pycache__/visualize.cpython-36.pyc
+__pycache__/solution.cpython-36.pyc
+.spyproject/encoding.ini
+.spyproject/vcs.ini
+.spyproject/workspace.ini
+objects/__pycache__/GameResources.cpython-36.pyc

@@ -1,5 +1,22 @@
 assignments = []
 
+rows = 'ABCDEFGHI'
+cols = '123456789'
+
+def cross(A, B):
+    "Cross product of elements in A and elements in B."
+    return [s+t for s in A for t in B]
+
+boxes = cross(rows, cols)
+row_units = [cross(r, cols) for r in rows]
+column_units = [cross(rows, c) for c in cols]
+square_units = [cross(rs, cs) for rs in ('ABC','DEF','GHI') for cs in ('123','456','789')]
+diagonal_units1 = [['A1','B2','C3','D4','E5','F6','G7','H8','I9']]
+diagonal_units2 = [['A9','B8','C7','D6','E5','F4','G3','H2','I1']]
+unitlist = row_units + column_units + square_units + diagonal_units1 + diagonal_units2
+units = dict((s, [u for u in unitlist if s in u]) for s in boxes)
+peers = dict((s, set(sum(units[s],[]))-set([s])) for s in boxes)
+
 def assign_value(values, box, value):
     """
     Please use this function to update your values dictionary!
@@ -18,9 +35,30 @@ def naked_twins(values):
     Returns:
         the values dictionary with the naked twins eliminated from peers.
     """
-
-    # Find all instances of naked twins
-    # Eliminate the naked twins as possibilities for their peers
+    for unit in unitlist:
+        twoKeys = []
+        for key in unit:
+            if(len(values[key]) == 2):
+                twoKeys.append(key)
+            #print(key + ' ' + values[key])
+        print()
+        if(len(twoKeys) >= 2):
+            for twoKey in twoKeys:
+                #print(twoKey + ' ' + values[twoKey])
+                for key in unit:
+                    if(key != twoKey) and (values[key] == values[twoKey]):
+                        print(key + ' ' + values[key])
+                        val = values[key]
+                        #print(val[0])
+                        #print(val[1])
+                        for key2 in unit:
+                            if(key2 != twoKey) and (key2 != key) and len(values[key2]) > 1:
+                                values[key2] = values[key2].replace(val[0], '')
+                                values[key2] = values[key2].replace(val[1], '')
+                #print()
+        #print('*******************')
+    
+    return values
 
 def cross(A, B):
     "Cross product of elements in A and elements in B."
