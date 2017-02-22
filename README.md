@@ -3,11 +3,18 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: Psudocope implemented
+- Iterate throught all units
+- For each unit, check how many boxes have 2 digit
+- If the unit have more that one box with 2 digits
+- Iterate through this list to identify any two boxes with same content (twin pair)
+- For each of the other boxes in the unit, remove the content of the identified twin pairs from them (the other boxes)
+
+Naked twins helped in solving the sudoku by allowing us infer that the existence of a naked twin implies that some numbers can be removed from other boxes which therefore has reduced the posibile search space of the sudoku making the solution easier.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: Two units are created to contain the boxes for top-left to botom-right and top-right to bottom-left respectively. These diagonal units are added to the unitlist array as part of the contrain definitions.
 
 ### Install
 
