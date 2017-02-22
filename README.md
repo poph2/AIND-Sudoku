@@ -5,7 +5,7 @@
 Q: How do we use constraint propagation to solve the naked twins problem?  
 A: Psudocope implemented
 - Iterate throught all units
-- For each unit, check how many boxes have 2 digit
+- For each unit, check how many boxes have 2 digits
 - If the unit have more that one box with 2 digits
 - Iterate through this list to identify any two boxes with same content (twin pair)
 - For each of the other boxes in the unit, remove the content of the identified twin pairs from them (the other boxes)
